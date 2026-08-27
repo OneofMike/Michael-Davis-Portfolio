@@ -12,23 +12,16 @@
       --bg-soft: #0b0b0b;
       --panel: rgba(14, 14, 14, 0.82);
       --panel-2: rgba(20, 20, 20, 0.92);
-
       --text: #f4f0ea;
       --muted: #a39d96;
       --muted-2: #6e6964;
-
       --red: #c92518;
       --red-bright: #f03b20;
       --orange: #ff6b2c;
       --ember: #ff7a32;
-
       --border: rgba(255, 88, 43, 0.25);
       --border-soft: rgba(255,255,255,0.08);
-
-      --shadow:
-        0 18px 50px rgba(0,0,0,0.45),
-        0 0 30px rgba(219,54,24,0.08);
-
+      --shadow: 0 18px 50px rgba(0,0,0,0.45), 0 0 30px rgba(219,54,24,0.08);
       --radius: 20px;
     }
 
@@ -52,6 +45,7 @@
         sans-serif;
 
       color: var(--text);
+
       background:
         radial-gradient(
           circle at 72% 12%,
@@ -89,7 +83,133 @@
       margin: 0 auto;
     }
 
-    /* ---------------- NAV ---------------- */
+    /* ============================
+       NEW LANDING SCREEN
+    ============================ */
+
+    .systems-landing-wrap {
+      width: 100%;
+      background: #050505;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .systems-landing {
+      position: relative;
+      width: min(100%, 1536px);
+      aspect-ratio: 1536 / 720;
+      background: #050505;
+      overflow: hidden;
+    }
+
+    .systems-landing img {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      display: block;
+      object-fit: contain;
+
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: none;
+    }
+
+    .landing-hotspot {
+      position: absolute;
+      z-index: 3;
+
+      border: 0;
+      background: transparent;
+
+      cursor: pointer;
+      border-radius: 8px;
+      outline: none;
+
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .landing-hotspot:focus-visible {
+      box-shadow:
+        0 0 0 2px rgba(255,255,255,.95);
+
+      background:
+        rgba(255,255,255,.025);
+    }
+
+    @media (hover:hover) and (pointer:fine) {
+      .landing-hotspot:hover {
+        background:
+          rgba(255,255,255,.02);
+      }
+    }
+
+    /* CLICKABLE AREAS */
+
+    .hot-enter {
+      left: 6.2%;
+      top: 70.2%;
+      width: 8.7%;
+      height: 8.5%;
+    }
+
+    .hot-research {
+      left: 5.8%;
+      top: 87.1%;
+      width: 14%;
+      height: 9.2%;
+    }
+
+    .hot-structure {
+      left: 21.9%;
+      top: 87.1%;
+      width: 18.8%;
+      height: 9.2%;
+    }
+
+    .hot-analyze {
+      left: 43.7%;
+      top: 87.1%;
+      width: 16%;
+      height: 9.2%;
+    }
+
+    .hot-build {
+      left: 62.5%;
+      top: 87.1%;
+      width: 15.9%;
+      height: 9.2%;
+    }
+
+    .hot-deliver {
+      left: 79.8%;
+      top: 87.1%;
+      width: 18%;
+      height: 9.2%;
+    }
+
+    /* PHONE VIEW:
+       KEEP THE ORIGINAL GRAPHIC INTACT */
+
+    @media (max-width: 700px) {
+      .systems-landing-wrap {
+        overflow-x: auto;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .systems-landing {
+        width: 1120px;
+        min-width: 1120px;
+      }
+    }
+
+    /* ============================
+       NAV
+    ============================ */
 
     nav {
       position: sticky;
@@ -100,6 +220,7 @@
 
     .nav-inner {
       height: 74px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -117,7 +238,9 @@
         );
 
       backdrop-filter: blur(18px);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.25);
+
+      box-shadow:
+        0 18px 50px rgba(0,0,0,0.25);
     }
 
     .brand {
@@ -140,6 +263,7 @@
     .brand-logo img {
       width: 100%;
       height: 100%;
+
       object-fit: contain;
       display: block;
     }
@@ -147,7 +271,9 @@
     .brand-name {
       font-size: 14px;
       font-weight: 700;
+
       letter-spacing: 0.34em;
+
       text-transform: uppercase;
     }
 
@@ -159,21 +285,29 @@
 
     .nav-links a {
       position: relative;
+
       font-size: 14px;
       color: #ddd7d2;
+
       transition: 180ms ease;
     }
 
     .nav-links a::after {
       content: "";
+
       position: absolute;
+
       left: 0;
       right: 100%;
       bottom: -8px;
+
       height: 2px;
 
-      background: var(--red-bright);
-      transition: 180ms ease;
+      background:
+        var(--red-bright);
+
+      transition:
+        180ms ease;
     }
 
     .nav-links a:hover {
@@ -184,336 +318,17 @@
       right: 0;
     }
 
-    /* ---------------- HERO ---------------- */
-
-    .hero {
-      min-height: 720px;
-      position: relative;
-
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      align-items: center;
-      gap: 40px;
-
-      margin-top: 30px;
-      overflow: hidden;
-
-      border-radius: 30px;
-      border: 1px solid rgba(255,255,255,0.055);
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(5,5,5,1) 0%,
-          rgba(6,5,5,0.98) 33%,
-          rgba(8,6,5,0.63) 57%,
-          rgba(8,6,5,0.3) 100%
-        );
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-
-      background:
-        radial-gradient(
-          circle at 72% 58%,
-          rgba(255, 70, 23, 0.42),
-          transparent 18%
-        ),
-        radial-gradient(
-          ellipse at 77% 68%,
-          rgba(214, 41, 16, 0.3),
-          transparent 33%
-        ),
-        linear-gradient(
-          to top,
-          rgba(255, 66, 17, 0.16),
-          transparent 38%
-        );
-
-      pointer-events: none;
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 3;
-      padding: 68px 0 68px 44px;
-    }
-
-    .eyebrow {
-      font-size: 12px;
-      letter-spacing: 0.31em;
-      color: var(--red-bright);
-      text-transform: uppercase;
-      margin-bottom: 22px;
-      font-weight: 700;
-    }
-
-    h1 {
-      max-width: 690px;
-
-      font-size: clamp(60px, 7vw, 106px);
-      line-height: 0.93;
-      letter-spacing: -0.055em;
-
-      margin-bottom: 24px;
-    }
-
-    .hero-subtitle {
-      max-width: 640px;
-
-      font-size: clamp(24px, 2.5vw, 40px);
-      line-height: 1.12;
-
-      color: #c9c2bc;
-      font-weight: 650;
-
-      margin-bottom: 28px;
-    }
-
-    .accent-line {
-      width: 56px;
-      height: 2px;
-      background: var(--red-bright);
-      box-shadow: 0 0 16px rgba(255,52,24,0.65);
-      margin-bottom: 26px;
-    }
-
-    .hero-description {
-      max-width: 520px;
-
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.75;
-
-      margin-bottom: 32px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      min-width: 180px;
-      height: 52px;
-
-      padding: 0 22px;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 26px;
-
-      border-radius: 9px;
-
-      font-size: 14px;
-      font-weight: 650;
-
-      transition:
-        transform 180ms ease,
-        box-shadow 180ms ease,
-        border-color 180ms ease;
-    }
-
-    .btn-primary {
-      border: 1px solid #ff4a28;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(201,37,24,0.9),
-          rgba(123,19,13,0.74)
-        );
-
-      box-shadow:
-        0 0 25px rgba(255,54,24,0.28),
-        inset 0 0 22px rgba(255,101,39,0.12);
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255,73,38,0.6);
-      background: rgba(8,8,8,0.6);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary:hover {
-      box-shadow:
-        0 0 36px rgba(255,57,28,0.4),
-        inset 0 0 22px rgba(255,101,39,0.16);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--red-bright);
-    }
-
-    /* HERO ARCHITECTURAL ART */
-
-    .hero-art {
-      position: relative;
-      min-height: 620px;
-      align-self: stretch;
-      overflow: hidden;
-    }
-
-    .sun-glow {
-      position: absolute;
-      left: 20%;
-      right: -10%;
-      bottom: 18%;
-
-      height: 180px;
-
-      background:
-        radial-gradient(
-          ellipse,
-          rgba(255,103,38,0.66),
-          rgba(179,29,11,0.18) 42%,
-          transparent 70%
-        );
-
-      filter: blur(18px);
-    }
-
-    .horizon {
-      position: absolute;
-      left: -15%;
-      right: -10%;
-      bottom: 21%;
-
-      height: 2px;
-
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(255,78,31,0.8),
-          rgba(255,160,67,0.9),
-          rgba(255,66,23,0.6),
-          transparent
-        );
-
-      box-shadow:
-        0 0 30px rgba(255,79,27,0.8),
-        0 0 90px rgba(255,47,15,0.45);
-    }
-
-    .architecture {
-      position: absolute;
-      inset: 10% 4% 14% 6%;
-    }
-
-    .block {
-      position: absolute;
-
-      background:
-        linear-gradient(
-          160deg,
-          #151414,
-          #080808 56%,
-          #111 100%
-        );
-
-      border: 1px solid rgba(255,255,255,0.025);
-
-      box-shadow:
-        0 30px 70px rgba(0,0,0,0.8),
-        inset -10px 0 22px rgba(255,62,25,0.035);
-    }
-
-    .block-a {
-      width: 25%;
-      height: 72%;
-
-      left: 16%;
-      bottom: 9%;
-
-      transform: skewY(-2deg);
-    }
-
-    .block-b {
-      width: 42%;
-      height: 42%;
-
-      left: 37%;
-      top: 17%;
-
-      transform: skewY(4deg);
-    }
-
-    .block-c {
-      width: 38%;
-      height: 52%;
-
-      right: -8%;
-      bottom: 11%;
-
-      transform: skewY(-7deg);
-    }
-
-    .portal {
-      position: absolute;
-
-      width: 7%;
-      height: 64%;
-
-      left: 45%;
-      bottom: 7%;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(126,18,10,0.5),
-          rgba(255,71,25,0.98),
-          rgba(255,149,61,0.85),
-          rgba(128,15,8,0.48)
-        );
-
-      box-shadow:
-        0 0 24px rgba(255,69,23,0.78),
-        0 0 90px rgba(255,65,22,0.56);
-    }
-
-    .platform {
-      position: absolute;
-
-      width: 80%;
-      height: 13%;
-
-      left: 7%;
-      bottom: 0;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(32,23,21,0.85),
-          rgba(7,7,7,1)
-        );
-
-      clip-path:
-        polygon(8% 0,100% 0,92% 100%,0 100%);
-
-      border-top: 1px solid rgba(255,92,42,0.36);
-
-      box-shadow:
-        0 -8px 25px rgba(255,67,26,0.1),
-        0 28px 55px rgba(0,0,0,0.82);
-    }
-
-    /* ---------------- GENERAL SECTIONS ---------------- */
+    /* ============================
+       GENERAL SECTIONS
+    ============================ */
 
     section {
       scroll-margin-top: 110px;
     }
 
     .section {
-      padding: 72px 0 12px;
+      padding:
+        72px 0 12px;
     }
 
     .section-header {
@@ -530,7 +345,9 @@
       gap: 12px;
 
       font-size: 12px;
+
       letter-spacing: 0.34em;
+
       text-transform: uppercase;
 
       font-weight: 750;
@@ -538,11 +355,16 @@
 
     .section-label::before {
       content: "";
+
       width: 28px;
       height: 2px;
 
-      background: var(--red-bright);
-      box-shadow: 0 0 12px rgba(255,62,25,0.55);
+      background:
+        var(--red-bright);
+
+      box-shadow:
+        0 0 12px
+        rgba(255,62,25,0.55);
     }
 
     .section-link {
@@ -550,20 +372,33 @@
       color: var(--red-bright);
     }
 
-    /* ---------------- PROJECT CARDS ---------------- */
+    /* ============================
+       PROJECT CARDS
+    ============================ */
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0, 1fr)
+        );
+
       gap: 20px;
     }
 
     .project-card {
       position: relative;
+
       overflow: hidden;
 
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
+      border-radius:
+        var(--radius);
+
+      border:
+        1px solid
+        var(--border);
 
       background:
         linear-gradient(
@@ -572,7 +407,8 @@
           rgba(8,8,8,0.97)
         );
 
-      box-shadow: var(--shadow);
+      box-shadow:
+        var(--shadow);
 
       transition:
         transform 220ms ease,
@@ -581,16 +417,23 @@
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255,75,38,0.55);
+      transform:
+        translateY(-5px);
+
+      border-color:
+        rgba(255,75,38,0.55);
 
       box-shadow:
-        0 24px 70px rgba(0,0,0,0.58),
-        0 0 34px rgba(208,44,22,0.13);
+        0 24px 70px
+        rgba(0,0,0,0.58),
+
+        0 0 34px
+        rgba(208,44,22,0.13);
     }
 
     .project-preview {
       height: 290px;
+
       position: relative;
       overflow: hidden;
 
@@ -600,17 +443,21 @@
           rgba(226,55,23,0.17),
           transparent 48%
         ),
+
         linear-gradient(
           160deg,
           #171313,
           #090909 65%
         );
 
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom:
+        1px solid
+        rgba(255,255,255,0.06);
     }
 
     .project-preview::after {
       content: "";
+
       position: absolute;
       inset: 0;
 
@@ -624,223 +471,118 @@
       pointer-events: none;
     }
 
-    .project-label {
-      position: absolute;
-      z-index: 5;
+    .project-preview img {
+      width: 100%;
+      height: 100%;
 
-      top: 18px;
-      left: 18px;
-
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-
-      color: var(--red-bright);
-      text-transform: uppercase;
-    }
-
-    .fake-ui {
-      position: absolute;
-
-      inset: 48px 28px 25px;
-
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(15,15,15,0.94),
-          rgba(7,7,7,0.96)
-        );
-
-      box-shadow:
-        0 25px 55px rgba(0,0,0,0.55),
-        inset 0 0 40px rgba(255,74,29,0.025);
-
-      transform: perspective(900px) rotateX(2deg);
-      overflow: hidden;
-    }
-
-    .fake-top {
-      height: 38px;
-
-      background:
-        rgba(255,255,255,0.025);
-
-      border-bottom:
-        1px solid rgba(255,255,255,0.06);
-    }
-
-    .fake-layout {
-      height: calc(100% - 38px);
-      display: grid;
-      grid-template-columns: 100px 1fr;
-    }
-
-    .fake-side {
-      border-right: 1px solid rgba(255,255,255,0.06);
-      padding: 14px 10px;
-    }
-
-    .fake-side span {
+      object-fit: cover;
       display: block;
-
-      height: 9px;
-      border-radius: 99px;
-
-      background:
-        rgba(255,255,255,0.08);
-
-      margin-bottom: 11px;
-    }
-
-    .fake-side span:first-child {
-      background:
-        linear-gradient(
-          90deg,
-          rgba(216,45,23,0.9),
-          rgba(255,103,41,0.65)
-        );
-    }
-
-    .fake-main {
-      padding: 16px;
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 10px;
-      margin-bottom: 13px;
-    }
-
-    .mini-box {
-      height: 48px;
-      border-radius: 7px;
-
-      border: 1px solid rgba(255,255,255,0.06);
-
-      background:
-        rgba(255,255,255,0.025);
-    }
-
-    .chart {
-      height: 90px;
-      position: relative;
-
-      border-radius: 9px;
-      border: 1px solid rgba(255,255,255,0.06);
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,0.018),
-          transparent
-        );
-
-      overflow: hidden;
-    }
-
-    .chart::after {
-      content: "";
-
-      position: absolute;
-      left: 8%;
-      right: 8%;
-      bottom: 25%;
-
-      height: 2px;
-
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          #b52218 8%,
-          #ef4c28 33%,
-          #c92d1c 45%,
-          #ff7132 70%,
-          #df3b20 86%,
-          transparent
-        );
-
-      transform:
-        skewY(-7deg)
-        translateY(-8px);
-
-      box-shadow:
-        0 0 12px rgba(240,65,28,0.35);
     }
 
     .project-content {
-      padding: 24px 24px 26px;
+      padding:
+        24px 24px 26px;
     }
 
     .project-title-row {
       display: flex;
+
       align-items: center;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
       gap: 20px;
     }
 
     .project-title {
       font-size: 23px;
-      letter-spacing: -0.02em;
+
+      letter-spacing:
+        -0.02em;
     }
 
     .project-arrow {
-      color: var(--red-bright);
+      color:
+        var(--red-bright);
+
       font-size: 25px;
     }
 
     .project-description {
-      color: var(--muted);
+      color:
+        var(--muted);
+
       margin-top: 8px;
+
       font-size: 15px;
+
       line-height: 1.55;
     }
 
     .project-tags {
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 8px;
 
       margin-top: 18px;
     }
 
     .tag {
-      padding: 7px 10px;
+      padding:
+        7px 10px;
 
-      border-radius: 999px;
+      border-radius:
+        999px;
 
-      font-size: 11px;
-      color: #bcb6b1;
+      font-size:
+        11px;
 
-      background: rgba(255,255,255,0.04);
+      color:
+        #bcb6b1;
+
+      background:
+        rgba(255,255,255,0.04);
 
       border:
-        1px solid rgba(255,255,255,0.06);
+        1px solid
+        rgba(255,255,255,0.06);
     }
 
-    /* ---------------- BUILD CARDS ---------------- */
+    /* ============================
+       BUILD CARDS
+    ============================ */
 
     .build-grid {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+
+      grid-template-columns:
+        repeat(3,1fr);
+
       gap: 18px;
     }
 
     .build-card {
-      min-height: 142px;
+      min-height:
+        142px;
 
       display: flex;
-      align-items: center;
+
+      align-items:
+        center;
+
       gap: 20px;
 
       padding: 24px;
 
-      border-radius: 18px;
-      border: 1px solid var(--border-soft);
+      border-radius:
+        18px;
+
+      border:
+        1px solid
+        var(--border-soft);
 
       background:
         linear-gradient(
@@ -851,15 +593,24 @@
     }
 
     .build-icon {
-      flex: 0 0 72px;
-      height: 72px;
+      flex:
+        0 0 72px;
 
-      display: grid;
-      place-items: center;
+      height:
+        72px;
 
-      border-radius: 50%;
+      display:
+        grid;
 
-      border: 1px solid rgba(235,61,29,0.55);
+      place-items:
+        center;
+
+      border-radius:
+        50%;
+
+      border:
+        1px solid
+        rgba(235,61,29,0.55);
 
       background:
         radial-gradient(
@@ -868,33 +619,55 @@
           rgba(80,13,8,0.12)
         );
 
-      color: var(--red-bright);
-      font-size: 26px;
+      color:
+        var(--red-bright);
+
+      font-size:
+        26px;
     }
 
     .build-card h3 {
-      font-size: 19px;
-      margin-bottom: 8px;
+      font-size:
+        19px;
+
+      margin-bottom:
+        8px;
     }
 
     .build-card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
+      color:
+        var(--muted);
+
+      font-size:
+        14px;
+
+      line-height:
+        1.55;
     }
 
-    /* ---------------- ABOUT ---------------- */
+    /* ============================
+       ABOUT
+    ============================ */
 
     .about-panel {
-      display: grid;
-      grid-template-columns: 1fr 0.85fr;
-      gap: 26px;
+      display:
+        grid;
 
-      padding: 38px;
+      grid-template-columns:
+        1fr 0.85fr;
 
-      border-radius: 24px;
+      gap:
+        26px;
 
-      border: 1px solid var(--border-soft);
+      padding:
+        38px;
+
+      border-radius:
+        24px;
+
+      border:
+        1px solid
+        var(--border-soft);
 
       background:
         linear-gradient(
@@ -904,321 +677,415 @@
         );
     }
 
+    .eyebrow {
+      font-size:
+        12px;
+
+      letter-spacing:
+        0.31em;
+
+      color:
+        var(--red-bright);
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        22px;
+
+      font-weight:
+        700;
+    }
+
     .about-panel h2 {
-      font-size: clamp(32px,4vw,54px);
-      line-height: 1.06;
-      margin-bottom: 18px;
+      font-size:
+        clamp(
+          32px,
+          4vw,
+          54px
+        );
+
+      line-height:
+        1.06;
+
+      margin-bottom:
+        18px;
     }
 
     .about-panel p {
-      max-width: 720px;
+      max-width:
+        720px;
 
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 16px;
+      color:
+        var(--muted);
+
+      line-height:
+        1.75;
+
+      font-size:
+        16px;
     }
 
     .skills {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      display:
+        grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        12px;
     }
 
     .skill {
-      padding: 17px;
+      padding:
+        17px;
 
-      border-radius: 12px;
+      border-radius:
+        12px;
 
       border:
-        1px solid rgba(255,255,255,0.07);
+        1px solid
+        rgba(255,255,255,0.07);
 
       background:
         rgba(255,255,255,0.025);
 
-      color: #ccc6c0;
+      color:
+        #ccc6c0;
 
-      font-size: 13px;
-      line-height: 1.35;
+      font-size:
+        13px;
+
+      line-height:
+        1.35;
     }
 
-    /* ---------------- FOOTER ---------------- */
+    /* ============================
+       FOOTER
+    ============================ */
 
     footer {
-      margin: 70px auto 28px;
+      margin:
+        70px auto 28px;
 
-      min-height: 88px;
+      min-height:
+        88px;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
+      display:
+        flex;
 
-      padding: 20px 26px;
+      align-items:
+        center;
 
-      border-radius: 18px;
+      justify-content:
+        space-between;
 
-      border: 1px solid var(--border-soft);
+      gap:
+        30px;
 
-      background: rgba(7,7,7,0.82);
+      padding:
+        20px 26px;
+
+      border-radius:
+        18px;
+
+      border:
+        1px solid
+        var(--border-soft);
+
+      background:
+        rgba(7,7,7,0.82);
     }
 
     .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        12px;
     }
 
     .footer-brand img {
-      width: 34px;
-      height: 34px;
-      object-fit: contain;
+      width:
+        34px;
+
+      height:
+        34px;
+
+      object-fit:
+        contain;
     }
 
     .footer-brand span {
-      font-size: 12px;
-      letter-spacing: 0.28em;
-      font-weight: 700;
+      font-size:
+        12px;
+
+      letter-spacing:
+        0.28em;
+
+      font-weight:
+        700;
     }
 
     .footer-center {
-      color: var(--muted-2);
-      font-size: 13px;
+      color:
+        var(--muted-2);
+
+      font-size:
+        13px;
     }
 
     .footer-links {
-      display: flex;
-      gap: 16px;
+      display:
+        flex;
+
+      gap:
+        16px;
     }
 
     .footer-links a {
-      color: var(--muted);
-      font-size: 13px;
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
     }
 
     .footer-links a:hover {
-      color: var(--red-bright);
+      color:
+        var(--red-bright);
     }
 
-    /* ---------------- RESPONSIVE ---------------- */
+    /* ============================
+       RESPONSIVE
+    ============================ */
 
     @media (max-width: 980px) {
+
       .nav-links {
-        display: none;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy {
-        padding: 60px 34px 0;
-      }
-
-      .hero-art {
-        min-height: 470px;
+        display:
+          none;
       }
 
       .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
 
       .build-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
 
       .about-panel {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
     }
 
     @media (max-width: 640px) {
+
       .shell {
-        width: min(100% - 24px, 1440px);
+        width:
+          min(
+            100% - 24px,
+            1440px
+          );
       }
 
       nav {
-        top: 8px;
+        top:
+          8px;
       }
 
       .nav-inner {
-        height: 64px;
-        padding: 0 15px;
+        height:
+          64px;
+
+        padding:
+          0 15px;
       }
 
       .brand-name {
-        letter-spacing: 0.2em;
-        font-size: 11px;
+        letter-spacing:
+          0.2em;
+
+        font-size:
+          11px;
       }
 
       .brand-logo {
-        width: 35px;
-        height: 35px;
-      }
+        width:
+          35px;
 
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-copy {
-        padding: 48px 22px 0;
-      }
-
-      h1 {
-        font-size: 56px;
-      }
-
-      .hero-subtitle {
-        font-size: 26px;
-      }
-
-      .hero-art {
-        min-height: 390px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
+        height:
+          35px;
       }
 
       .section {
-        padding-top: 56px;
+        padding-top:
+          56px;
       }
 
       .section-header {
-        align-items: flex-end;
+        align-items:
+          flex-end;
       }
 
       .section-link {
-        display: none;
+        display:
+          none;
       }
 
       .project-preview {
-        height: 220px;
+        height:
+          220px;
       }
 
       .build-card {
-        align-items: flex-start;
+        align-items:
+          flex-start;
       }
 
       .about-panel {
-        padding: 24px;
+        padding:
+          24px;
       }
 
       .skills {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
 
       footer {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
       }
     }
-    .project-preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
   </style>
 </head>
 
 <body>
 
+  <!-- NEW ROSE / BUILDING LANDING SCREEN -->
+
+  <div class="systems-landing-wrap">
+
+    <section
+      class="systems-landing"
+      aria-label="Michael Systems landing screen"
+    >
+
+      <img
+        src="michael-systems-hero.jpg"
+        alt="Michael Systems portfolio introduction with a brutalist building and field of red roses."
+      />
+
+      <a
+        class="landing-hotspot hot-enter"
+        href="#work"
+        aria-label="Enter portfolio"
+      ></a>
+
+      <a
+        class="landing-hotspot hot-research"
+        href="#work"
+        aria-label="Research — I dig for clarity"
+      ></a>
+
+      <a
+        class="landing-hotspot hot-structure"
+        href="#about"
+        aria-label="Structure — I organize with purpose"
+      ></a>
+
+      <a
+        class="landing-hotspot hot-analyze"
+        href="#work"
+        aria-label="Analyze — I find what matters"
+      ></a>
+
+      <a
+        class="landing-hotspot hot-build"
+        href="#systems"
+        aria-label="Build — I create systems"
+      ></a>
+
+      <a
+        class="landing-hotspot hot-deliver"
+        href="#work"
+        aria-label="Deliver — I make it usable"
+      ></a>
+
+    </section>
+
+  </div>
+
+  <!-- NAV -->
+
   <nav class="shell">
+
     <div class="nav-inner">
 
-      <a class="brand" href="#">
+      <a
+        class="brand"
+        href="#"
+      >
+
         <div class="brand-logo">
-          <img src="logo.png" alt="Michael Davis logo" />
+
+          <img
+            src="logo.png"
+            alt="Michael Davis logo"
+          />
+
         </div>
 
         <div class="brand-name">
           Michael Davis
         </div>
+
       </a>
 
       <div class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#systems">Systems</a>
-       <a href="mailto:mikepd102002@gmail.com">Contact</a>
+
+        <a href="#work">
+          Work
+        </a>
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#systems">
+          Systems
+        </a>
+
+        <a href="mailto:mikepd102002@gmail.com">
+          Contact
+        </a>
+
       </div>
 
     </div>
-  </nav>
 
+  </nav>
 
   <main>
 
-    <!-- HERO -->
-
-    <section class="hero shell">
-
-      <div class="hero-copy">
-
-        <div class="eyebrow">
-          Systems that work. Experiences that deliver.
-        </div>
-
-        <h1>Michael Davis</h1>
-
-        <div class="hero-subtitle">
-          Interactive systems, dashboards,
-          and structured workflow design.
-        </div>
-
-        <div class="accent-line"></div>
-
-        <p class="hero-description">
-          I turn complex information into structured systems,
-          dashboards, research tools, and operational workflows
-          designed to make decisions clearer and work easier.
-        </p>
-
-        <div class="hero-actions">
-
-          <a href="#work" class="btn btn-primary">
-            <span>View Projects</span>
-            <span>→</span>
-          </a>
-
-         
-           <a href="mailto:mikepd102002@gmail.com" class="btn btn-secondary">
-    <span>Contact</span>
-    <span>→</span>
-</a>
-       
-
-        </div>
-
-      </div>
-
-
-      <div class="hero-art">
-
-        <div class="sun-glow"></div>
-        <div class="horizon"></div>
-
-        <div class="architecture">
-          <div class="block block-a"></div>
-          <div class="block block-b"></div>
-          <div class="block block-c"></div>
-
-          <div class="portal"></div>
-          <div class="platform"></div>
-        </div>
-
-      </div>
-
-    </section>
-
-
     <!-- FEATURED WORK -->
 
-    <section class="section shell" id="work">
+    <section
+      class="section shell"
+      id="work"
+    >
 
       <div class="section-header">
 
@@ -1232,7 +1099,6 @@
 
       </div>
 
-
       <div class="projects-grid">
 
         <!-- SPORTS -->
@@ -1243,13 +1109,15 @@
           target="_blank"
           rel="noopener"
         >
-<div class="project-preview">
-  <img
-    src="sports-preview.png"
-    alt="Sports Market Decision System preview"
-  />
-</div>
 
+          <div class="project-preview">
+
+            <img
+              src="sports-preview.png"
+              alt="Sports Market Decision System preview"
+            />
+
+          </div>
 
           <div class="project-content">
 
@@ -1266,38 +1134,53 @@
             </div>
 
             <div class="project-description">
-              Interactive rules explorer that converts sports-market
-              research into structured thresholds, decision states,
-              and operational logic.
+
+              Interactive rules explorer that converts
+              sports-market research into structured
+              thresholds, decision states, and
+              operational logic.
+
             </div>
 
             <div class="project-tags">
-              <span class="tag">Research</span>
-              <span class="tag">Decision Logic</span>
-              <span class="tag">Information Architecture</span>
-              <span class="tag">Interactive Dashboard</span>
+
+              <span class="tag">
+                Research
+              </span>
+
+              <span class="tag">
+                Decision Logic
+              </span>
+
+              <span class="tag">
+                Information Architecture
+              </span>
+
+              <span class="tag">
+                Interactive Dashboard
+              </span>
+
             </div>
 
           </div>
 
         </a>
 
-
-        <!-- MEDICAL AI -->
+        <!-- MEDICAL -->
 
         <a
           class="project-card"
           href="https://oneofmike.github.io/Medical-AI-Response-Quality-Dashboard/"
         >
 
-       
+          <div class="project-preview">
 
-         <div class="project-preview">
-  <img
-    src="medical-preview.png"
-    alt="Medical AI Evaluation Dashboard preview"
-  />
-</div>
+            <img
+              src="medical-preview.png"
+              alt="Medical AI Evaluation Dashboard preview"
+            />
+
+          </div>
 
           <div class="project-content">
 
@@ -1314,22 +1197,37 @@
             </div>
 
             <div class="project-description">
-              Structured QA system for evaluating AI-generated
-              medical responses across response quality,
-              compliance, completeness, and safety criteria.
+
+              Structured QA system for evaluating
+              AI-generated medical responses across
+              response quality, compliance,
+              completeness, and safety criteria.
+
             </div>
 
             <div class="project-tags">
-              <span class="tag">AI Evaluation</span>
-              <span class="tag">Quality Assurance</span>
-              <span class="tag">Rubric Design</span>
-              <span class="tag">Healthcare</span>
+
+              <span class="tag">
+                AI Evaluation
+              </span>
+
+              <span class="tag">
+                Quality Assurance
+              </span>
+
+              <span class="tag">
+                Rubric Design
+              </span>
+
+              <span class="tag">
+                Healthcare
+              </span>
+
             </div>
 
           </div>
 
         </a>
-
 
         <!-- ESTHETICIAN -->
 
@@ -1339,14 +1237,13 @@
         >
 
           <div class="project-preview">
-  <img
-    src="esthetician-preview.png"
-    alt="Esthetician Business Dashboard preview"
-  />
-</div>
-    
 
+            <img
+              src="esthetician-preview.png"
+              alt="Esthetician Business Dashboard preview"
+            />
 
+          </div>
 
           <div class="project-content">
 
@@ -1363,39 +1260,53 @@
             </div>
 
             <div class="project-description">
-              Client-management concept organizing booking,
-              intake, services, follow-up, and operational
-              information into one structured workflow.
+
+              Client-management concept organizing
+              booking, intake, services, follow-up,
+              and operational information into one
+              structured workflow.
+
             </div>
 
             <div class="project-tags">
-              <span class="tag">Workflow Design</span>
-              <span class="tag">Client Operations</span>
-              <span class="tag">Organization</span>
-              <span class="tag">UX Structure</span>
+
+              <span class="tag">
+                Workflow Design
+              </span>
+
+              <span class="tag">
+                Client Operations
+              </span>
+
+              <span class="tag">
+                Organization
+              </span>
+
+              <span class="tag">
+                UX Structure
+              </span>
+
             </div>
 
           </div>
 
         </a>
 
-
         <!-- TICKETS -->
 
         <a
           class="project-card"
-         href="https://oneofmike.github.io/Ticket-Resale-Market-Dashboard/"
+          href="https://oneofmike.github.io/Ticket-Resale-Market-Dashboard/"
         >
 
           <div class="project-preview">
 
-     
-    <img
-     src="ticket-preview.png"
-        alt="Ticket Resale Market Dashboard preview"
-    />
-</div>
+            <img
+              src="ticket-preview.png"
+              alt="Ticket Resale Market Dashboard preview"
+            />
 
+          </div>
 
           <div class="project-content">
 
@@ -1412,16 +1323,32 @@
             </div>
 
             <div class="project-description">
-              Operations system designed to surface ticket status,
-              priority, ownership, workload, and next actions
-              without forcing users through raw data.
+
+              Operations system designed to surface
+              ticket status, priority, ownership,
+              workload, and next actions without
+              forcing users through raw data.
+
             </div>
 
             <div class="project-tags">
-              <span class="tag">Operations</span>
-              <span class="tag">Task Visibility</span>
-              <span class="tag">Status Management</span>
-              <span class="tag">Dashboard Design</span>
+
+              <span class="tag">
+                Operations
+              </span>
+
+              <span class="tag">
+                Task Visibility
+              </span>
+
+              <span class="tag">
+                Status Management
+              </span>
+
+              <span class="tag">
+                Dashboard Design
+              </span>
+
             </div>
 
           </div>
@@ -1432,10 +1359,12 @@
 
     </section>
 
-
     <!-- WHAT I BUILD -->
 
-    <section class="section shell" id="systems">
+    <section
+      class="section shell"
+      id="systems"
+    >
 
       <div class="section-header">
 
@@ -1445,49 +1374,70 @@
 
       </div>
 
-
       <div class="build-grid">
 
         <div class="build-card">
 
-          <div class="build-icon">◔</div>
+          <div class="build-icon">
+            ◔
+          </div>
 
           <div>
-            <h3>Dashboards</h3>
+
+            <h3>
+              Dashboards
+            </h3>
+
             <p>
-              Clear interfaces that surface useful information
-              and turn raw data into something actionable.
+              Clear interfaces that surface useful
+              information and turn raw data into
+              something actionable.
             </p>
+
           </div>
 
         </div>
 
-
         <div class="build-card">
 
-          <div class="build-icon">⌘</div>
+          <div class="build-icon">
+            ⌘
+          </div>
 
           <div>
-            <h3>Workflow Systems</h3>
+
+            <h3>
+              Workflow Systems
+            </h3>
+
             <p>
-              Structured processes and operating logic designed
-              to reduce friction and keep information organized.
+              Structured processes and operating
+              logic designed to reduce friction
+              and keep information organized.
             </p>
+
           </div>
 
         </div>
 
-
         <div class="build-card">
 
-          <div class="build-icon">◇</div>
+          <div class="build-icon">
+            ◇
+          </div>
 
           <div>
-            <h3>Research Systems</h3>
+
+            <h3>
+              Research Systems
+            </h3>
+
             <p>
-              Research translated into usable frameworks,
-              evaluation systems, and decision tools.
+              Research translated into usable
+              frameworks, evaluation systems,
+              and decision tools.
             </p>
+
           </div>
 
         </div>
@@ -1496,10 +1446,12 @@
 
     </section>
 
-
     <!-- ABOUT -->
 
-    <section class="section shell" id="about">
+    <section
+      class="section shell"
+      id="about"
+    >
 
       <div class="about-panel">
 
@@ -1515,15 +1467,20 @@
           </h2>
 
           <p>
-            My work starts with understanding the problem,
-            organizing the information, and designing the logic
-            behind the solution. I use spreadsheets, AI,
-            research tools, and lightweight development
-            resources to turn those ideas into functional systems.
+
+            My work starts with understanding
+            the problem, organizing the information,
+            and designing the logic behind the
+            solution.
+
+            I use spreadsheets, AI, research tools,
+            and lightweight development resources
+            to turn those ideas into functional
+            systems.
+
           </p>
 
         </div>
-
 
         <div class="skills">
 
@@ -1557,14 +1514,19 @@
 
     </section>
 
+    <!-- FOOTER -->
 
-    <!-- CONTACT / FOOTER -->
-
-    <footer class="shell" id="contact">
+    <footer
+      class="shell"
+      id="contact"
+    >
 
       <div class="footer-brand">
 
-        <img src="logo.png" alt="Michael Davis logo" />
+        <img
+          src="logo.png"
+          alt="Michael Davis logo"
+        />
 
         <span>
           Michael Davis
@@ -1572,15 +1534,18 @@
 
       </div>
 
-
       <div class="footer-center">
         Research. Structure. Systems. Execution.
       </div>
 
-
       <div class="footer-links">
-        
-      <a href="mailto:mikepd102002@gmail.com">Email</a>
+
+        <a
+          href="mailto:mikepd102002@gmail.com"
+        >
+          Email
+        </a>
+
         <a
           href="https://github.com/OneofMike"
           target="_blank"
@@ -1588,13 +1553,16 @@
         >
           GitHub
         </a>
-         <a
-  href="https://www.instagram.com/oneofmike/"
-  target="_blank"
-  rel="noopener"
->
-  Instagram
-</a></div>
+
+        <a
+          href="https://www.instagram.com/oneofmike/"
+          target="_blank"
+          rel="noopener"
+        >
+          Instagram
+        </a>
+
+      </div>
 
     </footer>
 
