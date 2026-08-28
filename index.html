@@ -365,158 +365,624 @@ h1,
       border-color: var(--red-bright);
     }
 
-    /* HERO ARCHITECTURAL ART */
+/* ---------------- ANALYTICAL INTERFACE ---------------- */
 
-    .hero-art {
-      position: relative;
-      min-height: 620px;
-      align-self: stretch;
-      overflow: hidden;
-    }
+.hero-art {
+  position: relative;
+  min-height: 620px;
+  align-self: stretch;
+  overflow: hidden;
+  padding: 34px 22px 34px 0;
+}
 
-    .sun-glow {
-      position: absolute;
-      left: 20%;
-      right: -10%;
-      bottom: 18%;
+.analytic-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 550px;
 
-      height: 180px;
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 18px;
 
-      background:
-        radial-gradient(
-          ellipse,
-          rgba(255,103,38,0.66),
-          rgba(179,29,11,0.18) 42%,
-          transparent 70%
-        );
+  background:
+    linear-gradient(
+      rgba(255,255,255,0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.018) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 50% 48%,
+      rgba(255,70,20,0.10),
+      transparent 28%
+    ),
+    rgba(5,5,5,0.78);
 
-      filter: blur(18px);
-    }
+  background-size:
+    32px 32px,
+    32px 32px,
+    auto,
+    auto;
 
-    .horizon {
-      position: absolute;
-      left: -15%;
-      right: -10%;
-      bottom: 21%;
+  box-shadow:
+    inset 0 0 60px rgba(0,0,0,0.72),
+    0 22px 60px rgba(0,0,0,0.35);
 
-      height: 2px;
+  overflow: hidden;
+}
 
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(255,78,31,0.8),
-          rgba(255,160,67,0.9),
-          rgba(255,66,23,0.6),
-          transparent
-        );
+.analytic-header {
+  height: 44px;
 
-      box-shadow:
-        0 0 30px rgba(255,79,27,0.8),
-        0 0 90px rgba(255,47,15,0.45);
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    .architecture {
-      position: absolute;
-      inset: 10% 4% 14% 6%;
-    }
+  padding: 0 16px;
 
-    .block {
-      position: absolute;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 
-      background:
-        linear-gradient(
-          160deg,
-          #151414,
-          #080808 56%,
-          #111 100%
-        );
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 
-      border: 1px solid rgba(255,255,255,0.025);
+  color: #8f8984;
+}
 
-      box-shadow:
-        0 30px 70px rgba(0,0,0,0.8),
-        inset -10px 0 22px rgba(255,62,25,0.035);
-    }
+.analytic-header strong {
+  color: var(--red-bright);
+  font-weight: 700;
+}
 
-    .block-a {
-      width: 25%;
-      height: 72%;
+.analytic-mode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-      left: 16%;
-      bottom: 9%;
+.status-dot {
+  width: 7px;
+  height: 7px;
 
-      transform: skewY(-2deg);
-    }
+  background: var(--red-bright);
 
-    .block-b {
-      width: 42%;
-      height: 42%;
+  box-shadow:
+    0 0 12px rgba(255,63,30,0.9);
+}
 
-      left: 37%;
-      top: 17%;
+.analytic-grid {
+  position: relative;
 
-      transform: skewY(4deg);
-    }
+  display: grid;
 
-    .block-c {
-      width: 38%;
-      height: 52%;
+  grid-template-columns:
+    0.9fr
+    1.3fr
+    1.05fr;
 
-      right: -8%;
-      bottom: 11%;
+  grid-template-rows:
+    1fr
+    1fr
+    0.72fr;
 
-      transform: skewY(-7deg);
-    }
+  gap: 12px;
 
-    .portal {
-      position: absolute;
+  padding: 14px;
 
-      width: 7%;
-      height: 64%;
+  height: calc(100% - 44px);
+}
 
-      left: 45%;
-      bottom: 7%;
+.analytic-card {
+  position: relative;
 
-      background:
-        linear-gradient(
-          90deg,
-          rgba(126,18,10,0.5),
-          rgba(255,71,25,0.98),
-          rgba(255,149,61,0.85),
-          rgba(128,15,8,0.48)
-        );
+  padding: 14px;
 
-      box-shadow:
-        0 0 24px rgba(255,69,23,0.78),
-        0 0 90px rgba(255,65,22,0.56);
-    }
+  border:
+    1px solid
+    rgba(255,255,255,0.09);
 
-    .platform {
-      position: absolute;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(12,12,12,0.84),
+      rgba(5,5,5,0.9)
+    );
 
-      width: 80%;
-      height: 13%;
+  box-shadow:
+    inset 0 0 24px rgba(255,70,25,0.025);
+}
 
-      left: 7%;
-      bottom: 0;
+.analytic-label {
+  font-size: 10px;
 
-      background:
-        linear-gradient(
-          180deg,
-          rgba(32,23,21,0.85),
-          rgba(7,7,7,1)
-        );
+  letter-spacing: 0.08em;
 
-      clip-path:
-        polygon(8% 0,100% 0,92% 100%,0 100%);
+  text-transform: uppercase;
 
-      border-top: 1px solid rgba(255,92,42,0.36);
+  color: var(--red-bright);
 
-      box-shadow:
-        0 -8px 25px rgba(255,67,26,0.1),
-        0 28px 55px rgba(0,0,0,0.82);
-    }
+  margin-bottom: 12px;
+}
+
+.analytic-card small {
+  display: block;
+
+  color: #77716c;
+
+  font-size: 9px;
+
+  line-height: 1.65;
+
+  margin-bottom: 2px;
+}
+
+.data-card {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.pattern-card {
+  grid-column: 2 / 4;
+  grid-row: 1;
+}
+
+.filter-card {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.process-card {
+  grid-column: 2;
+  grid-row: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-color:
+    rgba(255,67,28,0.35);
+}
+
+.decision-card {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.output-card {
+  grid-column: 2 / 4;
+  grid-row: 3;
+}
+
+.analytic-footer {
+  grid-column: 1;
+  grid-row: 3;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 7px 0;
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,0.035);
+
+  color: #8d8782;
+
+  font-size: 9px;
+}
+
+.input-row i {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #d2cbc5;
+}
+
+.pattern-wave {
+  position: absolute;
+
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+
+  height: 76px;
+
+  overflow: hidden;
+}
+
+.pattern-wave::before,
+.pattern-wave::after {
+  content: "";
+
+  position: absolute;
+
+  left: -5%;
+  width: 110%;
+  height: 2px;
+
+  top: 50%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(230,230,230,0.3) 7%,
+      rgba(230,230,230,0.7) 18%,
+      rgba(255,70,28,0.75) 33%,
+      rgba(225,225,225,0.7) 49%,
+      rgba(255,70,28,0.55) 70%,
+      rgba(220,220,220,0.5) 88%,
+      transparent
+    );
+
+  transform:
+    skewY(-5deg)
+    translateY(-4px);
+
+  box-shadow:
+    0 0 8px rgba(255,68,27,0.18);
+}
+
+.pattern-wave::after {
+  opacity: 0.45;
+
+  transform:
+    skewY(6deg)
+    translateY(8px);
+}
+
+.filter-row {
+  display: grid;
+
+  grid-template-columns:
+    70px 1fr;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 10px;
+
+  font-size: 9px;
+
+  color: #857f7a;
+}
+
+.filter-track {
+  height: 4px;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  overflow: hidden;
+}
+
+.filter-fill {
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--red),
+      var(--orange)
+    );
+
+  box-shadow:
+    0 0 8px
+    rgba(255,64,25,0.35);
+}
+
+.core-glow {
+  position: absolute;
+
+  width: 145px;
+  height: 145px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,90,30,0.34),
+      rgba(255,52,20,0.10) 34%,
+      transparent 68%
+    );
+
+  filter: blur(3px);
+
+  animation:
+    corePulse 2.8s ease-in-out infinite;
+}
+
+.core-box {
+  position: relative;
+
+  width: 92px;
+  height: 92px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(255,95,47,0.55);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,92,32,0.22),
+      rgba(8,8,8,0.8) 55%
+    );
+
+  box-shadow:
+    0 0 22px rgba(255,68,26,0.18),
+    inset 0 0 20px rgba(255,72,28,0.10);
+}
+
+.core-box::before,
+.core-box::after {
+  content: "";
+
+  position: absolute;
+
+  border:
+    1px solid
+    rgba(255,101,49,0.22);
+}
+
+.core-box::before {
+  width: 68%;
+  height: 68%;
+}
+
+.core-box::after {
+  width: 38%;
+  height: 38%;
+
+  background:
+    rgba(255,72,24,0.18);
+
+  box-shadow:
+    0 0 18px
+    rgba(255,62,20,0.4);
+}
+
+.core-box span {
+  position: absolute;
+
+  bottom: -30px;
+
+  font-size: 10px;
+
+  color: var(--red-bright);
+
+  letter-spacing: 0.07em;
+}
+
+.core-box small {
+  position: absolute;
+
+  bottom: -47px;
+
+  color: #77716c;
+
+  white-space: nowrap;
+}
+
+.decision-option {
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 8px;
+
+  margin-bottom: 6px;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.06);
+
+  color: #7e7873;
+
+  font-size: 9px;
+}
+
+.decision-option strong {
+  color: #9f9892;
+}
+
+.decision-option.active {
+  border-color:
+    rgba(255,65,28,0.55);
+
+  color: #ddd6cf;
+
+  background:
+    rgba(255,64,25,0.06);
+}
+
+.decision-option.active strong {
+  color: var(--red-bright);
+}
+
+.output-bars {
+  position: absolute;
+
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+
+  height: 54px;
+
+  display: flex;
+  align-items: flex-end;
+
+  gap: 7px;
+}
+
+.output-bars i {
+  flex: 1;
+
+  min-width: 3px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--orange),
+      var(--red)
+    );
+
+  box-shadow:
+    0 0 7px
+    rgba(255,68,26,0.24);
+
+  opacity: 0.85;
+}
+
+.footer-module {
+  padding: 9px 10px;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.06);
+
+  background:
+    rgba(255,255,255,0.018);
+}
+
+.footer-module small {
+  margin-bottom: 2px;
+}
+
+.status-module strong {
+  display: block;
+
+  color: var(--red-bright);
+
+  font-size: 11px;
+
+  margin-bottom: 5px;
+}
+
+.analytic-shell::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 49.8%,
+      rgba(255,74,28,0.05) 50%,
+      transparent 50.2%
+    ),
+    linear-gradient(
+      transparent 49.8%,
+      rgba(255,74,28,0.04) 50%,
+      transparent 50.2%
+    );
+}
+
+@keyframes corePulse {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 980px) {
+
+  .hero-art {
+    min-height: 580px;
+    padding: 20px 28px 32px;
+  }
+
+  .analytic-shell {
+    min-height: 520px;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .hero-art {
+    min-height: 620px;
+    padding: 16px 18px 28px;
+  }
+
+  .analytic-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:
+      120px
+      150px
+      150px
+      110px;
+
+    overflow: hidden;
+  }
+
+  .data-card {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .pattern-card {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .filter-card {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .process-card {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .decision-card {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .output-card {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .analytic-footer {
+    grid-column: 1 / 3;
+    grid-row: 4;
+
+    grid-template-columns:
+      1fr 1fr 1fr;
+  }
+}
 
     /* ---------------- GENERAL SECTIONS ---------------- */
 
@@ -1212,22 +1678,137 @@ h1,
       </div>
 
 
-      <div class="hero-art">
-
-        <div class="sun-glow"></div>
-        <div class="horizon"></div>
-
-        <div class="architecture">
-          <div class="block block-a"></div>
-          <div class="block block-b"></div>
-          <div class="block block-c"></div>
-
-          <div class="portal"></div>
-          <div class="platform"></div>
-        </div>
+      
 
       </div>
+<div class="hero-art analytic-ui">
 
+  <div class="analytic-frame">
+
+    <div class="analytic-topbar">
+      <span>ANALYTICAL INTERFACE // v1.00</span>
+      <span>MODE: ANALYZE</span>
+    </div>
+
+    <div class="analytic-grid">
+
+      <div class="analytic-card input-card">
+        <div class="analytic-label">DATA INPUT</div>
+        <div class="analytic-lines">
+          <span>Internal Data</span>
+          <span>External Sources</span>
+          <span>Observations</span>
+          <span>Variables</span>
+          <span>Constraints</span>
+        </div>
+      </div>
+
+      <div class="analytic-card pattern-card">
+        <div class="analytic-label">PATTERN RECOGNITION</div>
+
+        <div class="pattern-chart">
+          <span class="wave wave-a"></span>
+          <span class="wave wave-b"></span>
+          <span class="wave wave-c"></span>
+        </div>
+      </div>
+
+      <div class="analytic-card weight-card">
+        <div class="analytic-label">FILTER &amp; WEIGHT</div>
+
+        <div class="metric-row">
+          <span>Relevance</span>
+          <div class="metric-bar"><i style="width:78%"></i></div>
+        </div>
+
+        <div class="metric-row">
+          <span>Impact</span>
+          <div class="metric-bar"><i style="width:64%"></i></div>
+        </div>
+
+        <div class="metric-row">
+          <span>Probability</span>
+          <div class="metric-bar"><i style="width:88%"></i></div>
+        </div>
+
+        <div class="metric-row">
+          <span>Confidence</span>
+          <div class="metric-bar"><i style="width:72%"></i></div>
+        </div>
+      </div>
+
+      <div class="analytic-core">
+        <div class="core-glow"></div>
+        <div class="core-box">
+          <span>PROCESSING</span>
+          <small>Structure. Weight. Prioritize.</small>
+        </div>
+      </div>
+
+      <div class="analytic-card decision-card">
+        <div class="analytic-label">DECISION FRAMEWORK</div>
+
+        <div class="decision-option active">
+          <span>SCENARIO A</span>
+          <strong>62%</strong>
+        </div>
+
+        <div class="decision-option">
+          <span>SCENARIO B</span>
+          <strong>28%</strong>
+        </div>
+
+        <div class="decision-option">
+          <span>SCENARIO C</span>
+          <strong>10%</strong>
+        </div>
+      </div>
+
+      <div class="analytic-card output-card">
+        <div class="analytic-label">OUTPUT</div>
+
+        <div class="output-bars">
+          <i style="height:35%"></i>
+          <i style="height:58%"></i>
+          <i style="height:42%"></i>
+          <i style="height:72%"></i>
+          <i style="height:54%"></i>
+          <i style="height:88%"></i>
+          <i style="height:66%"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="analytic-footer">
+
+      <div class="footer-module">
+        <div class="analytic-label">SYSTEM LOG</div>
+        <small>[09:14:22] Data pipeline initialized</small>
+        <small>[09:14:23] Patterns detected</small>
+        <small>[09:14:24] Framework generated</small>
+        <small>[09:14:25] Output ready</small>
+      </div>
+
+      <div class="footer-module">
+        <div class="analytic-label">METRICS</div>
+        <small>ACCURACY&nbsp;&nbsp;&nbsp;92.4%</small>
+        <small>CONFIDENCE&nbsp;&nbsp;87.1%</small>
+        <small>COVERAGE&nbsp;&nbsp;&nbsp;&nbsp;84.7%</small>
+        <small>CONSISTENCY&nbsp;93.6%</small>
+      </div>
+
+      <div class="footer-module status-module">
+        <div class="analytic-label">SYSTEM STATUS</div>
+        <strong>ACTIVE</strong>
+        <small>All systems operational</small>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
     </section>
 
 
