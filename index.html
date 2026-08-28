@@ -591,59 +591,53 @@ h1,
   background: #d2cbc5;
 }
 
-.pattern-wave {
+..pattern-wave {
   position: absolute;
-
   left: 18px;
   right: 18px;
-  bottom: 18px;
-
-  height: 76px;
-
+  bottom: 22px;
+  height: 110px;
   overflow: hidden;
 }
 
 .pattern-wave::before,
 .pattern-wave::after {
   content: "";
-
   position: absolute;
-
   left: -5%;
   width: 110%;
-  height: 2px;
-
+  height: 3px;
   top: 50%;
 
   background:
     linear-gradient(
       90deg,
       transparent,
-      rgba(230,230,230,0.3) 7%,
-      rgba(230,230,230,0.7) 18%,
-      rgba(255,70,28,0.75) 33%,
-      rgba(225,225,225,0.7) 49%,
-      rgba(255,70,28,0.55) 70%,
-      rgba(220,220,220,0.5) 88%,
+      rgba(235,235,235,0.35) 7%,
+      rgba(235,235,235,0.95) 18%,
+      rgba(255,70,28,1) 33%,
+      rgba(245,245,245,0.9) 49%,
+      rgba(255,70,28,0.95) 70%,
+      rgba(235,235,235,0.7) 88%,
       transparent
     );
 
   transform:
-    skewY(-5deg)
-    translateY(-4px);
+    skewY(-7deg)
+    translateY(-8px);
 
   box-shadow:
-    0 0 8px rgba(255,68,27,0.18);
+    0 0 10px rgba(255,68,27,0.55),
+    0 0 18px rgba(255,68,27,0.20);
 }
 
 .pattern-wave::after {
-  opacity: 0.45;
+  opacity: 0.6;
 
   transform:
-    skewY(6deg)
-    translateY(8px);
+    skewY(7deg)
+    translateY(12px);
 }
-
 .filter-row {
   display: grid;
 
